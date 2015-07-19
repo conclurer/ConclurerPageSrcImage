@@ -1,0 +1,20 @@
+<?php
+
+class ConclurerPageSrcImage extends WireData implements Module
+{
+    public function init() {
+        spl_autoload_register(function ($className) {
+            require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.$className.'.class.php';
+        });
+
+        $this->addHook("Pageimage::srcset", $this, 'hookPageimageGetSrcset');
+    }
+
+    public function hookPageimageGetSrcset (HookEvent $event) {
+        $pageimage = $event->object;
+
+        $object = new ConclurerPageSrcImageObject($pageimage);
+
+        $event->return = $object->getSrcSetString();
+    }
+}

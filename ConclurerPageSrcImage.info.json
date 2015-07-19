@@ -1,0 +1,12 @@
+{
+  "title": "PageSrcImage",
+  "version": 100,
+  "author": "Conclurer GbR",
+  "summary": "Adds srcset rendering methods to Pageimage",
+  "href": "https://www.conclurer.com",
+  "singular": true,
+  "autoload": true,
+  "requires": [
+    "PHP>=5.3"
+  ]
+}
